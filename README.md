@@ -93,4 +93,4 @@ https://github.com/Gurint
 
 ## License
 The EPC-Gen2-RFID-Tag-Baseband-Processor repository source code is licensed under the MIT license.  
-See LICENSE(https://github.com/Gurint/EPC-Gen2-RFID-Tag-Baseband-Processor/blob/master/LICENSE) for MIT copyright terms.
+See [LICENSE](https://github.com/Gurint/EPC-Gen2-RFID-Tag-Baseband-Processor/blob/master/LICENSE) for MIT copyright terms.
