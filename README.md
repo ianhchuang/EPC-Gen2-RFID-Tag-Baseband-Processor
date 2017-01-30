@@ -76,8 +76,8 @@ A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
 bb_proc_tb : an example of the communication between a Reader and a single Tag
 
 
-## Scripts  
-bb_proc_syn : for synthesis
+## Scripts
+bb_proc_syn : for synthesis  
 bb_proc_apr : for apr
 
 
