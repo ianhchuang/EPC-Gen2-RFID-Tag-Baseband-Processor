@@ -18,6 +18,6 @@ A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
 ## Modules  
 <table>
   <tr>
-    <td>123</td>
+    <td>NAME</td> <td>DESCRIPTION</td> 
   </tr>
 </table>
