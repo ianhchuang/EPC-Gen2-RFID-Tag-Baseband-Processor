@@ -1,6 +1,6 @@
 # EPC-Gen2-RFID-Tag-Baseband-Processor
 
-EPC Radio-Frequency Identity Protocols Generation-2 RFID :  
+EPC Radio-Frequency Identity Protocols Generation-2 UHF RFID :  
 http://www.gs1.org/sites/default/files/docs/epc/Gen2_Protocol_Standard.pdf
 
 GitHub repository :  
@@ -73,13 +73,23 @@ A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
 
 
 ## Test Bench
-bb_proc_tb -- an example of the communication between a Reader and a single Tag
+bb_proc_tb : an example of the communication between a Reader and a single Tag
 
 
 ## Scripts
-bb_proc_syn -- for synthesis
-bb_proc_apr -- for apr
+bb_proc_syn : for synthesis
+bb_proc_apr : for apr
 
 
 ## ROM Code File
-rom_code -- 64x16, 64 words and 16 bits per word
+rom_code : 64x16, 64 words and 16 bits per word
+
+
+## Author
+Ian Chuang  
+ianchuang0212@gmail.com  
+https://github.com/Gurint
+
+
+## License
+The EPC-Gen2-RFID-Tag-Baseband-Processor repository source code is licensed under the MIT license. See LICENSE for MIT copyright terms.
