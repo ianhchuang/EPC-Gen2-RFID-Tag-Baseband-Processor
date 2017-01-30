@@ -7,10 +7,6 @@ GitHub repository :
 https://github.com/Gurint/EPC-Gen2-RFID-Tag-Baseband-Processor
 
 
-## Architecture
-![bb_proc](http://imgur.com/a/29BbU)
-
-
 ## Introduction
 A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
 - operated in the lowest frequency (see FM0 and Miller Encoder/Decoder)
