@@ -44,10 +44,10 @@ wire clk_fm0_n;
 wire en_vcnt;		// enable V counter
 wire start_enc;		// start FM0 encoding
 wire send_v;		// send V
-wire m2o;			// output of MUX 2
+wire m2o;		// output of MUX 2
 
 reg [1:0]data_select;
-reg m1o;			// output of MUX 1
+reg m1o;		// output of MUX 1
 reg [4:0]v_cnt;		// V coumter
 reg [1:0]fg_comp_cnt;
 
