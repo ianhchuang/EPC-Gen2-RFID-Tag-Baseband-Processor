@@ -84,6 +84,9 @@ bb_proc_apr : for apr
 ## ROM Code File
 rom_code : 64x16, 64 words and 16 bits per word
 
+## Notes
+This design is improved by TSMC 0.18 um CMOS standard process. It's not able to make EEPROM.
+
 
 ## Author
 Ian Chuang  
