@@ -83,9 +83,26 @@ A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
 </table>
 
 
-## Script
+## Scripts
 <table>
   <tr>
-    <td>NAME</td> <td>DESCRIPTION</td> 
+    <td>NAME</td> <td>DESCRIPTION</td>
+  </tr>
+  <tr>
+    <td>bb_proc_syn</td> <td>for synthesis</td>
+  </tr>
+  <tr>
+    <td>bb_proc_apr</td> <td>for apr</td>
+  </tr>
+</table>
+
+
+## ROM Code File
+<table>
+  <tr>
+    <td>NAME</td> <td>DESCRIPTION</td>
+  </tr>
+  <tr>
+    <td>rom_code</td> <td>64x16, 64 words and 16 bits per word</td>
   </tr>
 </table>
