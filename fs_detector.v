@@ -13,7 +13,7 @@
 
 module fs_detector
 (
-output reg sync,			// if sync is high, means that receiving the valid Frame-Sync
+output reg sync,		// if sync is high, means that receiving the valid Frame-Sync
 input pie_code,
 input clk_fsd,
 input rst_n,
