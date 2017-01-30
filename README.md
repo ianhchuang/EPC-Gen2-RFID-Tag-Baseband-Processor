@@ -9,7 +9,7 @@ https://github.com/Gurint/EPC-Gen2-RFID-Tag-Baseband-Processor
 
 ## Introduction
 A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
-- operated in the lowest frequency (refer to FM0 and Miller Encoder/Decoder)
+- operated in the lowest frequency (see FM0 and Miller Encoder/Decoder)
 - clock gating
 - operand isolation
 - need a memory (in my case, I use a ROM)
