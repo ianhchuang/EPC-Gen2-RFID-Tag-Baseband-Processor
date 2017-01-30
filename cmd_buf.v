@@ -36,7 +36,7 @@ input sync
 parameter QueryRep		= 8'b0000_1100;
 parameter ACK			= 8'b0000_1101;
 parameter Query			= 8'b0011_1000;
-parameter QueryAdjust	= 8'b0011_1001;
+parameter QueryAdjust		= 8'b0011_1001;
 parameter Select		= 8'b0011_1010;
 parameter NAK			= 8'b1100_0000;
 parameter Req_RN		= 8'b1100_0001;
