@@ -51,7 +51,7 @@ input rd_complete
 parameter QueryRep		= 8'b0000_1100;
 parameter ACK			= 8'b0000_1101;
 parameter Query			= 8'b0011_1000;
-parameter QueryAdjust	= 8'b0011_1001;
+parameter QueryAdjust		= 8'b0011_1001;
 parameter Select		= 8'b0011_1010;
 parameter NAK			= 8'b1100_0000;
 parameter Req_RN		= 8'b1100_0001;
@@ -66,7 +66,7 @@ parameter Ready			= 4'h0;
 parameter Sloting		= 4'h1;
 parameter Arbitrate		= 4'h2;
 parameter Reply			= 4'h3;
-parameter Acknowledged	= 4'h4;
+parameter Acknowledged		= 4'h4;
 parameter SlotTran		= 4'h5;
 parameter Open			= 4'h6;
 parameter Secured		= 4'h7;
@@ -78,18 +78,18 @@ parameter Killed		= 4'h9;
 parameter do_nothing			= 5'h00;
 parameter set_sl_or_if			= 5'h01;
 parameter init_inventory		= 5'h02;
-parameter adj_q					= 5'h03;
-parameter dec_slot				= 5'h04;
+parameter adj_q				= 5'h03;
+parameter dec_slot			= 5'h04;
 parameter bs_new_rn16			= 5'h05;
-parameter reply_ack				= 5'h06;
-parameter bs_new_rn16_tran_if	= 5'h07;
+parameter reply_ack			= 5'h06;
+parameter bs_new_rn16_tran_if		= 5'h07;
 parameter adj_q_tran_if			= 5'h08;
 parameter dec_slot_tran_if		= 5'h09;
-parameter tran_if				= 5'h0a;
-parameter gen_and_bs_new_handle	= 5'h0b;
+parameter tran_if			= 5'h0a;
+parameter gen_and_bs_new_handle		= 5'h0b;
 parameter bs_new_rn16_crc16		= 5'h0c;
 parameter bs_read_data			= 5'h0d;
-parameter bs_handle				= 5'h0e;
+parameter bs_handle			= 5'h0e;
 parameter bs_header_kill		= 5'h0f;
 parameter bs_header_lock		= 5'h10;
 parameter bs_error_code			= 5'h11;
@@ -97,23 +97,23 @@ parameter bs_error_code			= 5'h11;
 
 wire clk_cp_n;
 
-reg [7:0]cmd_checked;	// checked command
+reg [7:0]cmd_checked;		// checked command
 reg [3:0]ps;			// present state
 reg [3:0]ns;			// next state
 reg [4:0]act;			// action
-reg mch;				// matching/not-matching
+reg mch;			// matching/not-matching
 reg [7:0]ptr;			// pointer of Select command (bit addressing)
-reg trct;				// parameter Truncate of Select command
+reg trct;			// parameter Truncate of Select command
 reg [1:0]sl;			// SL flag
-reg if_s0;				// inventoried flag of session 0
-reg if_s1;				// inventoried flag of session 1
-reg if_s2;				// inventoried flag of session 2
-reg if_s3;				// inventoried flag of session 3
-//reg dr;				// divide ratio
+reg if_s0;			// inventoried flag of session 0
+reg if_s1;			// inventoried flag of session 1
+reg if_s2;			// inventoried flag of session 2
+reg if_s3;			// inventoried flag of session 3
+//reg dr;			// divide ratio
 //reg [1:0]m;			// cycles per symbol
 //reg trext;			// pilot tone
 reg [1:0]session;		// tag's 4 sessions
-reg [3:0]q;				// # of bits of slot
+reg [3:0]q;			// # of bits of slot
 reg [14:0]slot;			// slot counter
 reg [9:0]lock_act;		// action of Lock command
 reg tid_lock;
