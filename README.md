@@ -18,7 +18,9 @@ A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
 ## Modules  
 <table>
   <tr>
-    <td>NAME</td> <td>DESCRIPTION</td>  
+    <td>NAME</td> <td>DESCRIPTION</td>
+  </tr>
+  <tr>
     <td>bb_proc</td> <td>baseband processor, top module</td>  
     <td>cmd_buf</td> <td>command buffer, serial to parallel</td>  
     <td>cmd_proc</td> <td>command processor, processes received commands</td>  
