@@ -70,3 +70,22 @@ A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
     <td>tx</td> <td>Transmit</td>
   </tr>
 </table>
+
+
+## Test Bench
+<table>
+  <tr>
+    <td>NAME</td> <td>DESCRIPTION</td> 
+  </tr>
+  <tr>
+    <td>bb_proc_tb</td> <td>an example of the communication between a Reader and a single Tag</td>
+  </tr>
+</table>
+
+
+## Script
+<table>
+  <tr>
+    <td>NAME</td> <td>DESCRIPTION</td> 
+  </tr>
+</table>
