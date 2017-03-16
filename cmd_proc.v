@@ -940,17 +940,17 @@ end
 // --- enable TX ---
 always@(*) begin
 	case(act_reg)
-		bs_new_rn16				: en_tx = 1'b1;
-		reply_ack				: en_tx = 1'b1;
-		bs_new_rn16_tran_if		: en_tx = 1'b1;
+		bs_new_rn16		: en_tx = 1'b1;
+		reply_ack		: en_tx = 1'b1;
+		bs_new_rn16_tran_if	: en_tx = 1'b1;
 		gen_and_bs_new_handle	: en_tx = 1'b1;
-		bs_new_rn16_crc16		: en_tx = 1'b1;
-		bs_read_data			: en_tx = 1'b1;
-		bs_handle				: en_tx = 1'b1;
-		bs_header_kill			: en_tx = 1'b1;
-		bs_header_lock			: en_tx = 1'b1;
-		bs_error_code			: en_tx = 1'b1;
-		default					: en_tx = 1'b0;
+		bs_new_rn16_crc16	: en_tx = 1'b1;
+		bs_read_data		: en_tx = 1'b1;
+		bs_handle		: en_tx = 1'b1;
+		bs_header_kill		: en_tx = 1'b1;
+		bs_header_lock		: en_tx = 1'b1;
+		bs_error_code		: en_tx = 1'b1;
+		default			: en_tx = 1'b0;
 	endcase
 end
 
@@ -1027,18 +1027,18 @@ end
 // --- determine the end of reply counter ---
 always@(*) begin
 	case(act_reg)
-		bs_new_rn16				:	r_end = 5'h08;
-		reply_ack				:	if(~trct) r_end = 5'h17;
-									else r_end = 5'h12;
-		bs_new_rn16_tran_if		:	r_end = 5'h08;
+		bs_new_rn16		:	r_end = 5'h08;
+		reply_ack		:	if(~trct) r_end = 5'h17;
+						else r_end = 5'h12;
+		bs_new_rn16_tran_if	:	r_end = 5'h08;
 		gen_and_bs_new_handle	:	r_end = 5'h08;
-		bs_new_rn16_crc16		:	r_end = 5'h08;
-		bs_read_data			:	r_end = 5'h06;
-		bs_handle				:	r_end = 5'h08;
-		bs_header_kill			:	r_end = 5'h07;
-		bs_header_lock			:	r_end = 5'h07;
-		bs_error_code			:	r_end = 5'h00;
-		default					:	r_end = 5'h00;
+		bs_new_rn16_crc16	:	r_end = 5'h08;
+		bs_read_data		:	r_end = 5'h06;
+		bs_handle		:	r_end = 5'h08;
+		bs_header_kill		:	r_end = 5'h07;
+		bs_header_lock		:	r_end = 5'h07;
+		bs_error_code		:	r_end = 5'h00;
+		default			:	r_end = 5'h00;
 	endcase
 end
 
@@ -1046,30 +1046,30 @@ end
 // --- reply data ---
 always@(*) begin
 	case(act_reg)
-		bs_new_rn16				:	reply_data = rn16[r_cnt - 5'h08];
-		reply_ack				:	if(~trct) reply_data = rd_data;
-									else begin
-										if(r_cnt > 5'h12) reply_data = 1'b0;
-										else reply_data = rd_data;
-									end
+		bs_new_rn16			:	reply_data = rn16[r_cnt - 5'h08];
+		reply_ack			:	if(~trct) reply_data = rd_data;
+							else begin
+								if(r_cnt > 5'h12) reply_data = 1'b0;
+								else reply_data = rd_data;
+							end
 		bs_new_rn16_tran_if		:	reply_data = rn16[r_cnt - 5'h08];
-		gen_and_bs_new_handle	:	reply_data = handle[r_cnt - 5'h08];
+		gen_and_bs_new_handle		:	reply_data = handle[r_cnt - 5'h08];
 		bs_new_rn16_crc16		:	reply_data = rn16[r_cnt - 5'h08];
 		bs_read_data			:	if(r_cnt == 5'h17) reply_data = 1'b0;
-									else if(r_cnt == 5'h16) reply_data = rd_data;
-									else if(r_cnt < 5'h16 & r_cnt > 5'h5) reply_data = handle[r_cnt - 5'h6];
-									else reply_data = 1'b0;
-		bs_handle				:	reply_data = handle[r_cnt - 5'h08];
+							else if(r_cnt == 5'h16) reply_data = rd_data;
+							else if(r_cnt < 5'h16 & r_cnt > 5'h5) reply_data = handle[r_cnt - 5'h6];
+							else reply_data = 1'b0;
+		bs_handle			:	reply_data = handle[r_cnt - 5'h08];
 		bs_header_kill			:	if(r_cnt == 5'h17) reply_data = 1'b0;
-									else if(r_cnt < 5'h17 & r_cnt > 5'h6) reply_data = handle[r_cnt - 5'h07];
-									else reply_data = 1'b0;
+							else if(r_cnt < 5'h17 & r_cnt > 5'h6) reply_data = handle[r_cnt - 5'h07];
+							else reply_data = 1'b0;
 		bs_header_lock			:	if(r_cnt == 5'h17) reply_data = 1'b0;
-									else if(r_cnt < 5'h17 & r_cnt > 5'h6) reply_data = handle[r_cnt - 5'h07];
-									else reply_data = 1'b0;
+							else if(r_cnt < 5'h17 & r_cnt > 5'h6) reply_data = handle[r_cnt - 5'h07];
+							else reply_data = 1'b0;
 		bs_error_code			:	if(r_cnt > 5'h13) reply_data = 1'b0;
-									else if(r_cnt < 5'h14 & r_cnt > 5'h0f) reply_data = 1'b1;
-									else reply_data = handle[r_cnt];
-		default					:	reply_data = 1'b0;
+							else if(r_cnt < 5'h14 & r_cnt > 5'h0f) reply_data = 1'b1;
+							else reply_data = handle[r_cnt];
+		default				:	reply_data = 1'b0;
 	endcase
 end
 
