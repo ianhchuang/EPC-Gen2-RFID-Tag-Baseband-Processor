@@ -1,7 +1,8 @@
 /*
 	*	Pseudo Random Number Generator
 	*
-	*	EPC Gen2 protocol requests baseband processor should have a Random Number Generator comformed to it's spec
+	*	One of the spec requirements is to maintain a 16-bit random number
+	*	PRNG is used for that in my design
 	*
 	*	In this design, we chose the following polynimial to implement our PRNG
 	*	1 + x^3 + x^4 + x^5 + x^16
