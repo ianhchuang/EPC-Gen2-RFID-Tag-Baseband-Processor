@@ -148,16 +148,16 @@ end
 // --- next state logic ---
 always@(*) begin
 	case(ps)
-		Ready			:	if(cmd_checked == Query) begin
+		Ready				:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) ns = Sloting;
 								else ns = Ready;
 							end
 							else ns = Ready;
 							
-		Sloting		 	:	if(slot == 15'b0) ns = Reply;
+		Sloting		 		:	if(slot == 15'b0) ns = Reply;
 							else ns = Arbitrate;
 							
-		Arbitrate	 	:	if(cmd_checked == Query) begin
+		Arbitrate	 		:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) ns = Sloting;
 								else ns = Ready;
 							end
@@ -178,7 +178,7 @@ always@(*) begin
 							end
 							else ns = Arbitrate;
 					   
-		Reply		 	: 	if(cmd_checked == Query) begin
+		Reply		 		: 	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) ns = Sloting;
 								else ns = Ready;
 							end
@@ -208,7 +208,7 @@ always@(*) begin
 							else if(cmd_checked == Lock) ns = Arbitrate;
 							else ns = Reply;
 					   
-		Acknowledged 	: 	if(cmd_checked == Query) begin
+		Acknowledged 			: 	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) ns = SlotTran;
 								else ns = Ready;
 							end
@@ -241,10 +241,10 @@ always@(*) begin
 							else if(cmd_checked == Lock) ns = Arbitrate;					   
 							else ns = Acknowledged;
 		
-		SlotTran		:	if(slot == 15'b0) ns = Reply;
+		SlotTran			:	if(slot == 15'b0) ns = Reply;
 							else ns = Arbitrate;
 		
-		Open		 	:	if(cmd_checked == Query) begin
+		Open		 		:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) ns = SlotTran;
 								else ns = Ready;
 							end
@@ -278,7 +278,7 @@ always@(*) begin
 							else if(cmd_checked == Lock) ns = Open;
 							else ns = Open;
 					   
-		Secured		 	: 	if(cmd_checked == Query) begin
+		Secured		 		: 	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) ns = SlotTran;
 								else ns = Ready;
 							end
@@ -311,7 +311,7 @@ always@(*) begin
 							else if(cmd_checked == Lock) ns = Secured;
 							else ns = Secured;
 					   
-		Killing		 	: 	if(cmd_checked == Query) begin
+		Killing		 		: 	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) ns = SlotTran;
 								else ns = Ready;
 							end
@@ -322,9 +322,9 @@ always@(*) begin
 							end
 							else ns = Arbitrate;
 					   
-		Killed		 :		ns = Killed;
+		Killed		 		:	ns = Killed;
 		
-		default		 :		ns = Arbitrate;
+		default				:	ns = Arbitrate;
 	endcase
 end
 
@@ -332,7 +332,7 @@ end
 // --- output logic ---
 always@(*) begin
 	case(ps)
-		Ready			:	if(cmd_checked == Query) begin
+		Ready				:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) act = init_inventory;
 								else act = do_nothing;
 							end
@@ -345,10 +345,10 @@ always@(*) begin
 							end
 							else act = do_nothing;
 		
-		Sloting			:	if(slot == 15'b0) act = bs_new_rn16;
+		Sloting				:	if(slot == 15'b0) act = bs_new_rn16;
 							else act = do_nothing;
 		
-		Arbitrate		:	if(cmd_checked == Query) begin
+		Arbitrate			:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) act = init_inventory;
 								else act = do_nothing;
 							end
@@ -369,7 +369,7 @@ always@(*) begin
 							end
 							else act = do_nothing;
 					   
-		Reply			:	if(cmd_checked == Query) begin
+		Reply				:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) act = init_inventory;
 								else act = do_nothing;
 							end
@@ -394,7 +394,7 @@ always@(*) begin
 							end
 							else act = do_nothing;
 					   
-		Acknowledged	:	if(cmd_checked == Query) begin
+		Acknowledged			:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) act = init_inventory;
 								else act = do_nothing;
 							end
@@ -423,13 +423,13 @@ always@(*) begin
 							end
 							else act = do_nothing;
 
-		SlotTran		:	if(param[11:10] == session) begin
+		SlotTran			:	if(param[11:10] == session) begin
 								if(slot == 15'b0) act = bs_new_rn16_tran_if;
 								else act = tran_if;
 							end
 							else act = do_nothing;
 			
-		Open			:	if(cmd_checked == Query) begin
+		Open				:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) act = init_inventory;
 								else act = do_nothing;
 							end
@@ -493,7 +493,7 @@ always@(*) begin
 							end
 							else act = do_nothing;
 						
-		Secured			:	if(cmd_checked == Query) begin
+		Secured				:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) act = init_inventory;
 								else act = do_nothing;
 							end
@@ -561,7 +561,7 @@ always@(*) begin
 							end
 							else act = do_nothing;
 					   
-		Killing			:	if(cmd_checked == Query) begin
+		Killing				:	if(cmd_checked == Query) begin
 								if((param[11:9] == {2'b00, if_s0} | param[11:9] == {2'b01, if_s1} | param[11:9] == {2'b10, if_s2} | param[11:9] == {2'b11, if_s3}) & (~param[13] | param[13:12] == sl)) act = init_inventory;
 								else act = do_nothing;
 							end
@@ -575,9 +575,9 @@ always@(*) begin
 							end
 							else act = do_nothing;
 					   
-		Killed			:	act = do_nothing;
+		Killed				:	act = do_nothing;
 		
-		default		 	:	act = do_nothing;
+		default		 		:	act = do_nothing;
 	endcase
 end
 
