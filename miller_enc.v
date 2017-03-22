@@ -88,17 +88,17 @@ end
 always@(*) begin
 	case(ps)
 		GetData : if(~en_fm0 & me_start) ns = DataP;
-				  else ns = GetData;
+			  else ns = GetData;
 		DataP	: if(~send_data) ns = DataP;
-				  else begin
-					 if(~m_cnt) ns = DataP;
-					 else ns = DataN;
-				  end
+			  else begin
+			  	if(~m_cnt) ns = DataP;
+				else ns = DataN;
+			  end
 		DataN	: if(~send_data) ns = DataN;
-				  else begin
-					 if(~m_cnt) ns = DataN;
-					 else ns = DataP;
-				  end
+			  else begin
+			  	if(~m_cnt) ns = DataN;
+				else ns = DataP;
+			  end
 		default : ns = GetData;
 	endcase
 end
