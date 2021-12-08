@@ -16,7 +16,7 @@ A low-cost low-power baseband processor for EPC Gen-2 UHF RFID Tag
 - Verilog language
 - synthesized by Synopsys Design Compiler 
 - apr by Synopsys IC Compiler
-- improved by TSMC 0.18 um CMOS standard process
+- implemented by TSMC 0.18 um CMOS standard process
 
 
 ## Modules  
@@ -85,7 +85,7 @@ bb_proc_apr : for apr
 rom_code : 64x16, 64 words and 16 bits per word
 
 ## Notes
-This design is improved by TSMC 0.18 um CMOS standard process.
+This design is implemented by TSMC 0.18 um CMOS standard process.
 It's not able to manufacture EEPROM, so I use a ROM to be processor's memory.
 That makes I can't verify Write command.
 I am not able to provide ROM's verilog file because of confidentiality.
